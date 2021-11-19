@@ -1,8 +1,9 @@
 <html>
     <body>
         <script>
-            function countVowelLetters(Vvod=prompt())
+            function countVowelLetters()
             {
+                Vvod=prompt()
                 Vvod = Array.from(Vvod)
                     let count;
                     let arr3=Vvod.filter(letter => 'ауоиэыяюеё'.includes(letter)).length;

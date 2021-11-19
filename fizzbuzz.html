@@ -1,33 +1,7 @@
 <html>
     <body>
         <script>
-            let arr = new Array(101);
-            function FizzBuzz(arr)
-            { 
-
-            for(let i=1;i<arr.length;i++)
-            {
-                arr[i]=i;
-                arr[0]=0;
-                if(arr[i]%3===0 && arr[i]%5===0)
-                {
-                    arr[i]="FizzBuzz";
-                }
-                if(arr[i]%3===0)
-                {
-                    arr[i]="fizz";
-                }
-                if(arr[i]%5===0)
-                {
-                    arr[i]="buzz";
-                }
-
-            }
-            alert(arr)
-
-            }
-            FizzBuzz(arr);
-
+            x = 0;while (++x < 101)console.log((x % 3 ? "" : "Fizz") + (x % 5 ? "" : "Buzz") || x);
         </script>
     </body>
 </html>

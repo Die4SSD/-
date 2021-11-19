@@ -1,80 +1,30 @@
 <html>
     <body>
         <script>
-            function compress()
+            function compress(string)
             {
-                let index1=1;
-                let index2=1;
-                let index3=1;
-                let Vvod;
-                let Vivod;
-                let VivodA;
-                let VivodB;
-                let VivodC;
-                Vvod = prompt('Функция compress');
-                String(Vvod);
-                Vvod = Array.from(Vvod);
-                for(let i=0;i<Vvod.length;i++)
-                {
-                    if(Vvod[i]==='a')
-                    {
-                        VivodA = 'a'+index1++
+                const obj ={}
+                string.split("").forEach(el => obj[el] = (obj[el] || 0) + 1)
+                return Object.entries(obj).flat().filter(el => el !== 1).join("").toString()
+            }
+    const uncompress = (string) => {
+    const mass = string.split("")
 
-                    }
-                    if(VivodA==undefined)
-                    {
-                        VivodA=""
-                    }
-                    if(Vvod[i]==='b')
-                    {
-                        VivodB = 'b'+index2++
-                    }
-                    if(VivodB==undefined)
-                    {
-                        VivodB=""
-                    }
-                    if(Vvod[i]==='c')
-                    {
-                        VivodC = 'c'+index3++
-                    }
-                    if(VivodC==undefined)
-                    {
-                        VivodC=""
-                    }
-                    
-                    Vivod=VivodA+''+VivodB+''+VivodC;
-                }
-                alert(Vivod)
-            }
-            function uncompress()
-            {
-                let Vvod;
-                let VivodA='';
-                let VivodB='';
-                let VivodC='';
-                let Vivod;
-                Vvod = prompt("Функция uncompress");
-                Vvod = Array.from(Vvod);
-                String(Vvod);
-                for(let i=0;i<Vvod[1];i++)
-                {
-                    VivodA=VivodA+'a'
-                }
-                for(let i=0;i<Vvod[3];i++)
-                {
-                    VivodB=VivodB+'b'
-                }
-                for(let i=0;i<Vvod[5];i++)
-                {
-                    VivodC=VivodC+'c'
-                }
-                
-                alert(Vivod=VivodA+VivodB+VivodC)
-                
-                
-            }
-            compress();
-            uncompress();
+    const multiplicate = (letter, count = 1) => {
+        let result = ""
+        for (let i = 0; i < count; i ++) result += letter
+        return result
+    }
+    mass.reduce((acc, el, i, arr) => {
+        if (acc !== el) arr.splice( i - 1, 1, multiplicate(acc, el) )
+        if (i === arr.length - 1) arr.splice(-1, 1)
+        return el
+    })
+    return mass.join("")
+}
+console.log( compress('ttttttffffff'));
+console.log(uncompress('a3b5'))
+
         </script>
     </body>
 </html>

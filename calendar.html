@@ -7,12 +7,14 @@
       </select> 
     </head>
         <body>
-            <div id="calendar"></div>
+          <div id="calendar"></div>
             <script>
-              let div = document.createElement('div');
-                  div.id = 'calendar2';
-                  div.innerHTML = '<label>Sloi</label>'
-                  document.body.append(div)
+              function CreateDiv(){
+                let div = document.createElement('div');
+                div.id = 'calendar2';
+                 document.body.append(div)
+                 return div.id
+              }
               function ButtonEnable(){
                 let button = document.getElementById("buttonCreate")
                 button.removeAttribute('disabled')
@@ -43,45 +45,10 @@
               function getSelectMounth(){
                 let select = selectSpisokMounth
                 let value = select.value;
-                if(value=="Январь"){
-                  value=1
-                }
-                if(value=="Февраль"){
-                  value=2
-                }
-                if(value=="Март"){
-                  value=3
-                }
-                if(value=="Апрель"){
-                  value=4
-                }
-                if(value=="Май"){
-                  value=5
-                }
-                if(value=="Июнь"){
-                  value=6
-                }
-                if(value=="Июль"){
-                  value=7
-                }
-                if(value=="Август"){
-                  value=8
-                }
-                if(value=="Сентябрь"){
-                  value=9
-                }
-                if(value=="Октябрь"){
-                  value=10
-                }
-                if(value=="Ноябрь"){
-                  value=11
-                }
-                if(value=="Декабрь"){
-                  value=12
-                }
-                return value
+                let toNumber = arr.indexOf(value)+1
+                return toNumber
               }
-                function createCalendar(elem, year, month) {
+                function createCalendar(elem,year, month) {
                   let mon = month - 1;
                   let d = new Date(year, mon);
                   let table = '<table><tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>';
@@ -101,8 +68,7 @@
                     }
                   }
                   table += '</tr></table>';
-                  
-            
+                  //let elem = CreateDiv();
                   elem.innerHTML = table;
                 }
                 function getDay(date) {
@@ -111,8 +77,8 @@
                   return day - 1;
                 }
                 buttonCreate.onclick = function(){
-                  
-                    createCalendar(calendar2, +getSelectYear(),+getSelectMounth())
+                  //CreateDiv();
+                createCalendar(calendar, +getSelectYear(),+getSelectMounth())
                   };
                   
               </script>
