@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <script>
+            function makeCounter() {
+let currentCount = 5;
+  function counter() {
+    return currentCount;
+  }
+  counter.log = function() {
+    Math.log(currentCount)
+    return currentCount
+  };
+  counter.count = function(value) {
+    currentCount=currentCount+value;
+  };
+  counter.reset = function(){
+      currentCount = 0;
+      return currentCount
+  }
+  return counter;
+}
+var counter = makeCounter();
+counter.log()
+counter.count(4)
+counter.log();
+counter.count(3)
+counter.log();
+counter.reset();
+counter.log()
+counter.count(8)
+counter.log()
+
+alert( counter() );
+        </script>
+    </body>
+</html>

@@ -1,0 +1,20 @@
+<html>
+    <body>
+        <script>
+            function Counter()
+            {
+                function count()
+                {
+                    return count.currentCount++;
+                }
+                count.currentCount = 1;
+                return count;
+            }
+            let app = Counter();
+            for(let i=0;i<10;i++)
+            {
+                alert("Вызовов: "+app());
+            }
+        </script>
+    </body>
+</html>
