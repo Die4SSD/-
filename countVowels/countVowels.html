@@ -1,0 +1,14 @@
+<html>
+    <body>
+        <script>
+            function countVowelLetters()
+            {
+                text=prompt()
+                text = Array.from(text)
+                    const arr=text.filter(letter => 'ауоиэыяюеё'.includes(letter)).length;
+                    alert("Гласных букв: "+arr)     
+            }
+            countVowelLetters();
+        </script>
+    </body>
+</html>

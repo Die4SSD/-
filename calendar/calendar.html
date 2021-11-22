@@ -1,0 +1,24 @@
+<html>
+    <head>
+      <link rel="stylesheet" href="style.css">
+      <label>Год: </label><select id="selectYear" onchange="ButtonEnable()">
+      </select>
+      <label>Месяц: </label><select id="selectMounth" onchange="ButtonEnable()">
+      <input type="submit" id='buttonCreate' value="Создать" disabled>
+      </select> 
+    </head>
+        <body>
+          <div>
+            <div id="title">
+              <input type = button id= prevYear value="<<">
+              <input type = button id= prevMounth value="<">
+              <div id="Date"></div>
+              <input type = button id= nextMounth value=">">
+              <input type = button id= nextYear value=">>">
+              </div>
+          </div>
+          
+          <div id="calendar"></div>
+            <script src="calendar.js"></script>
+        </body>
+</html>

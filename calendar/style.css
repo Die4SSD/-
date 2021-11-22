@@ -1,0 +1,33 @@
+table {
+    width: 500px;
+    margin: auto;
+ }
+ th {
+    width: 10%;
+ }
+ th, td {
+    border: 1px solid grey;
+ }
+ #Date {
+    text-align: center; 
+ }
+ html {
+     background-color:lightcyan 
+ }
+#prevYear, #prevMounth,#nextMounth,#nextYear  {
+    border: 0px;
+    background-color: lightcyan;
+}
+#title {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+td:hover {
+    background-color: red;
+}
+td:focus {
+    background-color: black;
+}
