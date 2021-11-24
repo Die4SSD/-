@@ -1,15 +1,12 @@
-function counter(){
-    let count = 0
-    buttonCreate.onclick = count++
-    return count
-  }
+let countDiv = 0
   function CreateDiv(){
+    countDiv++
     let div = document.createElement('div');
-    div.id = 'calendar1'; //как-то сделать увеличение 1 при нажатии кнопки для получения нового слоя
-     document.body.append(div)
-     return div.id
+    div.id = 'calendar'+countDiv;
+    document.body.append(div)
+    return toString(div.id)
   }
-  function ButtonEnable(){
+  function buttonEnable(){
     let button = document.getElementById("buttonCreate")
     button.removeAttribute('disabled')
   }
@@ -51,10 +48,10 @@ function counter(){
   function evt(){
     this.css
   }
-    function createCalendar(elem,year, month) {
+    function createCalendar(year, month) {
       let mon = month - 1;
       let d = new Date(year, mon);
-      let table = '<table><tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>';
+      let table = '<table id=rr><tr><th>пн</th><th>вт</th><th>ср</th><th>чт</th><th>пт</th><th>сб</th><th>вс</th></tr><tr>';
       for (let i = 0; i < getDay(d); i++) {
         table += '<td></td>';
       }
@@ -71,8 +68,9 @@ function counter(){
         }
       }
       table += '</tr></table>';
-      //let elem = CreateDiv();
+      let elem = document.getElementById('calendar'+countDiv);
       elem.innerHTML = table;
+      document.querySelectorAll('td').forEach(el => el.onclick = e => el.style.backgroundColor = 'red');
     }
     function getDay(date) {
       let day = date.getDay();
@@ -80,33 +78,37 @@ function counter(){
       return day - 1;
     }
     buttonCreate.onclick = function(){
-     // CreateDiv();
-    createCalendar(calendar, +getSelectYear(),+getSelectMounth())
+    CreateDiv();
+    createCalendar( +getSelectYear(),+getSelectMounth())
     document.getElementById("Date").innerHTML = getMounthName()+' '+getSelectYear()+'года';
     };
     let countPushMounth = 0;
     nextMounth.onclick = function(){
       countPushMounth++
-    createCalendar(calendar,getSelectYear(),+getSelectMounth()+countPushMounth)
-    document.getElementById("Date").innerHTML = arr[getSelectMounth()+countPushMounth-1]+' '+(+getSelectYear()+countPushYear)+'года';
-    
+    createCalendar(getSelectYear(),+getSelectMounth()+countPushMounth)
+    document.getElementById("Date").innerHTML = arr[getSelectMounth()+countPushMounth-1]+' '+(+getSelectYear()+countPushYear)+' года';
     }
     let countPushYear = 0;
     nextYear.onclick = function(){
       countPushYear++
-      createCalendar(calendar,getSelectYear()+countPushYear,getSelectMounth())
-      document.getElementById("Date").innerHTML = arr[getSelectMounth()+countPushMounth-1]+''+(+getSelectYear()+countPushYear)+'года';
-
+      createCalendar(getSelectYear()+countPushYear,getSelectMounth())
+      document.getElementById("Date").innerHTML = arr[getSelectMounth()+countPushMounth-1]+''+(+getSelectYear()+countPushYear)+' года';
     }
     prevMounth.onclick = function(){
       countPushMounth--
-      createCalendar(calendar,getSelectYear(),getSelectMounth()+countPushMounth)
-      document.getElementById("Date").innerHTML =  arr[getSelectMounth()+countPushMounth-1]+' '+(+getSelectYear()+countPushYear)+'года';
-      
+      createCalendar(getSelectYear(),getSelectMounth()+countPushMounth)
+      document.getElementById("Date").innerHTML =  arr[getSelectMounth()+countPushMounth-1]+' '+(+getSelectYear()+countPushYear)+' года';
     }
     prevYear.onclick = function(){
       countPushYear--
-      createCalendar(calendar,+getSelectYear()+countPushYear,getSelectMounth())
-      document.getElementById("Date").innerHTML =arr[getSelectMounth()+countPushMounth-1]+''+(+getSelectYear()+countPushYear)+'года';
-
+      createCalendar(+getSelectYear()+countPushYear,getSelectMounth())
+      document.getElementById("Date").innerHTML =arr[getSelectMounth()+countPushMounth-1]+''+(+getSelectYear()+countPushYear)+' года';
     }
+    buttonDelete.onclick = function(){
+      const element = document.getElementById('calendar'+countDiv)
+      if(element.parentNode){
+        element.parentNode.removeChild(element);
+      }
+      countDiv--
+    }
+    

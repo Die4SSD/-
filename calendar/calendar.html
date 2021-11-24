@@ -1,14 +1,15 @@
 <html>
     <head>
       <link rel="stylesheet" href="style.css">
-      <label>Год: </label><select id="selectYear" onchange="ButtonEnable()">
+      <label>Год: </label><select id="selectYear" onchange="buttonEnable()">
       </select>
-      <label>Месяц: </label><select id="selectMounth" onchange="ButtonEnable()">
+      <label>Месяц: </label><select id="selectMounth" onchange="buttonEnable()">
       <input type="submit" id='buttonCreate' value="Создать" disabled>
+      <input type = button id= 'buttonDelete' value="Удалить">
       </select> 
     </head>
         <body>
-          <div>
+          <div id=parent>
             <div id="title">
               <input type = button id= prevYear value="<<">
               <input type = button id= prevMounth value="<">
@@ -17,8 +18,6 @@
               <input type = button id= nextYear value=">>">
               </div>
           </div>
-          
-          <div id="calendar"></div>
             <script src="calendar.js"></script>
         </body>
 </html>
