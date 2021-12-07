@@ -11,3 +11,7 @@ h3{
     border: 1px solid black;
     background-color: red;
 }
+.closebut{
+    background: red;
+    margin-left: 85%;
+}
