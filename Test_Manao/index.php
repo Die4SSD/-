@@ -16,9 +16,9 @@ $data = json_decode($file, true);
 <body>
     <form action="logcheck.php" method="POST">
         <label>Login</label>
-        <input type="text" name="LoginName" placeholder="Input Login">
+        <input type="text" name="LoginName" placeholder="Input Login" required>
         <label>Password</label>
-        <input type="password" name="LoginPassword" placeholder="Input Password">
+        <input type="password" name="LoginPassword" placeholder="Input Password" required>
         <?php
         if($_SESSION['message']){
             echo '<p class="msg"> ' .$_SESSION['message'] . ' </p>';
